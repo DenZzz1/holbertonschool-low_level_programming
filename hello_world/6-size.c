@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 /**
- * main - affiche la taille de différents types de données 
+ * main - Prints the size of various types
  *
- * Description: Le programme affiche la tailles de  
- * char, int, long int, long long int et float.
+ * Description: This program displays the size of
+ * char, int, long int, long long int, and float types.
  *
  * Return: Always 0 (Success)
  */
