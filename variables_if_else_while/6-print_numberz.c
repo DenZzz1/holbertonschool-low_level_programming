@@ -3,8 +3,9 @@
 /**
  * main - Affiche tous les nombres à un chiffre de base 10 à partir de 0.
  *
- * Description: Ce programme affiche les chiffres de 0 à 9 en utilisant uniquement
- * la fonction putchar et sans utiliser aucune variable de type char.
+ * Description: Ce programme affiche les chiffres de 0 à 9 en utilisant
+ * uniquement la fonction putchar et 
+ * sans utiliser aucune variable de type char.
  *
  * Return: Always 0 (Success)
  */
