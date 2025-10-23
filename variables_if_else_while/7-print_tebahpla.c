@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Affiche l'alphabet minuscule dans l'ordre inverse 
+ * main - Affiche l'alphabet minuscule dans l'ordre inverse
  *
  * Description: Ce programme affiche l'alphabet minuscule
  * dans l'ordre inverse en utilisant uniquement la fonction putchar.
