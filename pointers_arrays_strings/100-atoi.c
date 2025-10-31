@@ -9,8 +9,10 @@
  */
 int _atoi(char *s)
 {
-	int i = 0, sign = 1, started = 0;
+	int i = 0;
+	int sign = 1;
 	int result = 0;
+	int started = 0;
 
 	while (s[i] != '\0')
 	{
