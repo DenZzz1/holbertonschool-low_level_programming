@@ -1,6 +1,12 @@
 #include "main.h"
 #include <limits.h>
 
+/**
+ * _atoi - converts a string to an integer
+ * @s: pointer to the string to convert
+ *
+ * Return: the integer value, or 0 if no numbers found
+ */
 int _atoi(char *s)
 {
 	int i = 0;
