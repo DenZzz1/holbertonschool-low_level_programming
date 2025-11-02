@@ -23,9 +23,11 @@ int _atoi(char *s)
 		{
 			digit = s[i] - '0';
 
-			if (sign == 1 && (result > (INT_MAX - digit) / 10))
+			/* check overflow for positive numbers */
+			if (sign == 1 && result > (INT_MAX - digit) / 10)
 				return (INT_MAX);
-			if (sign == -1 && (-result < (INT_MIN + digit) / 10))
+			/* check overflow for negative numbers */
+			if (sign == -1 && -result < (INT_MIN + digit) / 10)
 				return (INT_MIN);
 
 			result = (result * 10) + digit;
