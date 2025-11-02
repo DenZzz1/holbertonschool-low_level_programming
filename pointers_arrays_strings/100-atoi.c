@@ -19,10 +19,12 @@ int _atoi(char *s)
 	{
 		if (s[i] == '-')
 			sign = -sign;
+
 		else if (s[i] >= '0' && s[i] <= '9')
 		{
 			digit = s[i] - '0';
 
+			/* Check overflow before multiplication */
 			if (sign == 1)
 			{
 				if (result > (INT_MAX - digit) / 10)
@@ -30,7 +32,7 @@ int _atoi(char *s)
 			}
 			else
 			{
-				if (result > (INT_MAX - digit + 1) / 10)
+				if (result > (INT_MAX - digit) / 10)
 					return (INT_MIN);
 			}
 
@@ -42,8 +44,5 @@ int _atoi(char *s)
 		i++;
 	}
 
-	if (sign == -1)
-		return (-result);
-
-	return (result);
+	return (result * sign);
 }
