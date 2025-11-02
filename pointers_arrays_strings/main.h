@@ -4,6 +4,7 @@
 int _putchar(char c);
 int _strlen(char *s);
 int _atoi(char *s);
+int _strcmp(char *s1, char *s2);
 void reset_to_98(int *n);
 void swap_int(int *a, int *b);
 void _puts(char *str);
