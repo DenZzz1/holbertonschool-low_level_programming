@@ -23,7 +23,7 @@ int _atoi(char *s)
 		{
 			digit = s[i] - '0';
 
-			/* Vérification avant tout calcul pour éviter overflow */
+			/* Prevent overflow before multiplying */
 			if (sign == 1)
 			{
 				if (result > (INT_MAX - digit) / 10)
@@ -43,9 +43,13 @@ int _atoi(char *s)
 		i++;
 	}
 
-	/* Cas spécial INT_MIN (-2147483648) */
-	if (sign == -1 && result == 2147483648U)
-		return (INT_MIN);
+	/* No unsigned comparison — handle INT_MIN safely */
+	if (sign == -1)
+	{
+		if (result == INT_MAX + 1) /* Equivalent to 2147483648 without 'U' */
+			return (INT_MIN);
+		return (-result);
+	}
 
-	return (result * sign);
+	return (result);
 }
