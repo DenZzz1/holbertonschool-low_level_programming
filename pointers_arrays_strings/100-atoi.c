@@ -5,7 +5,7 @@
  * _atoi - convert a string to an integer
  * @s: pointer to the string
  *
- * Return: the integer value, or 0 if none
+ * Return: integer value, or 0 if no numbers found
  */
 int _atoi(char *s)
 {
@@ -23,7 +23,6 @@ int _atoi(char *s)
 		{
 			digit = s[i] - '0';
 
-			/* Prevent overflow before multiplying */
 			if (sign == 1)
 			{
 				if (result > (INT_MAX - digit) / 10)
@@ -31,7 +30,7 @@ int _atoi(char *s)
 			}
 			else
 			{
-				if (result > (INT_MAX - (digit - 1)) / 10)
+				if (result > (INT_MAX - digit + 1) / 10)
 					return (INT_MIN);
 			}
 
@@ -43,13 +42,8 @@ int _atoi(char *s)
 		i++;
 	}
 
-	/* No unsigned comparison — handle INT_MIN safely */
 	if (sign == -1)
-	{
-		if (result == INT_MAX + 1) /* Equivalent to 2147483648 without 'U' */
-			return (INT_MIN);
 		return (-result);
-	}
 
 	return (result);
 }
