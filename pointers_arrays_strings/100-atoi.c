@@ -2,10 +2,10 @@
 #include <limits.h>
 
 /**
- * _atoi - converts a string to an integer
- * @s: pointer to the string to convert
+ * _atoi - convert a string to an integer
+ * @s: pointer to the string
  *
- * Return: the integer value, or 0 if no numbers found
+ * Return: the integer value, or 0 if none
  */
 int _atoi(char *s)
 {
@@ -18,24 +18,34 @@ int _atoi(char *s)
 	while (s[i] != '\0')
 	{
 		if (s[i] == '-')
-			sign *= -1;
+			sign = -sign;
 		else if (s[i] >= '0' && s[i] <= '9')
 		{
 			digit = s[i] - '0';
 
-			/* check overflow for positive numbers */
-			if (sign == 1 && result > (INT_MAX - digit) / 10)
-				return (INT_MAX);
-			/* check overflow for negative numbers */
-			if (sign == -1 && -result < (INT_MIN + digit) / 10)
-				return (INT_MIN);
+			/* Vérification de dépassement avant calcul */
+			if (sign == 1)
+			{
+				if (result > (INT_MAX - digit) / 10)
+					return (INT_MAX);
+			}
+			else
+			{
+				if (result > (-(INT_MIN + digit)) / 10)
+					return (INT_MIN);
+			}
 
-			result = (result * 10) + digit;
+			result = result * 10 + digit;
 			started = 1;
 		}
 		else if (started)
 			break;
 		i++;
 	}
+
+	/* Pas de multiplication si on est à INT_MIN */
+	if (sign == -1 && result == 2147483648U)
+		return (INT_MIN);
+
 	return (result * sign);
 }
