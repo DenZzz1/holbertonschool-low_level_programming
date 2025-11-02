@@ -23,7 +23,6 @@ int _atoi(char *s)
 		{
 			digit = s[i] - '0';
 
-			/* Vérification de dépassement avant calcul */
 			if (sign == 1)
 			{
 				if (result > (INT_MAX - digit) / 10)
@@ -43,7 +42,6 @@ int _atoi(char *s)
 		i++;
 	}
 
-	/* Pas de multiplication si on est à INT_MIN */
 	if (sign == -1 && result == 2147483648U)
 		return (INT_MIN);
 
