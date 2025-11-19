@@ -3,8 +3,8 @@
 #include <stdio.h>
 
 /**
- * print_all - prints values of given types
- * @format: string with format types: c, i, f, s
+ * print_all - prints any of c, i, f, s types
+ * @format: format string containing type specifiers
  */
 void print_all(const char * const format, ...)
 {
