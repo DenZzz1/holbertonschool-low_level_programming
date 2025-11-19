@@ -28,7 +28,7 @@ void print_string(va_list args)
 {
 	char *z = va_arg(args, char *);
 	if (z)
-    
+
 		printf("%s", z);
 	else
 		printf("(nil)");
