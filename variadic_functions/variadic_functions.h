@@ -7,8 +7,8 @@
 /* Structure pour associer un type à une fonction */
 typedef struct types
 {
-    char *t;
-    void (*f)(va_list);
+char *t;
+void (*f)(va_list);
 } types_t;
 
 /* Fonctions à utiliser */
