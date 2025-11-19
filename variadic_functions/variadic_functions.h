@@ -1,7 +1,3 @@
-/**
- * variadic_functions.h - Header file for variadic functions
- */
-
 #ifndef VARIADIC_FUNCTIONS_H
 #define VARIADIC_FUNCTIONS_H
 
