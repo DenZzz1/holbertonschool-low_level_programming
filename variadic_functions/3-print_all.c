@@ -3,54 +3,38 @@
 #include <stdio.h>
 
 /**
- * print_all - Prints anything based on the format string.
- * @format: A string of characters representing types:
- * c' = char, 'i' = integer, 'f' = float, 's' = char *.
- * Any other character is ignored.
- * If a string argument is NULL, prints "(nil)".
+ * print_all - prints anything based on format string
+ * @format: string with types: 'c', 'i', 'f', 's'
  */
 void print_all(const char * const format, ...)
 {
-va_list args;
+va_list ap;
 unsigned int i = 0;
 char *str;
-char c;
-int integer;
-double f;
 const char *sep = "";
-va_start(args, format);
-/* Loop through format string */
-while (format != NULL && format[i] != '\0')
+va_start(ap, format);
+while (format && format[i])
 {
 if (format[i] == 'c')
 {
-c = (char) va_arg(args, int);
-printf("%s%c", sep, c);
+printf("%s%c", sep, va_arg(ap, int));
 sep = ", ";
 }
+if (format[i] == 'i' || format[i] == 'f' || format[i] == 's')
+{
 if (format[i] == 'i')
-{
-nteger = va_arg(args, int);
-printf("%s%d", sep, integer);
-sep = ", ";
-}
+printf("%s%d", sep, va_arg(ap, int));
 if (format[i] == 'f')
-{
-f = va_arg(args, double);
-printf("%s%f", sep, f);
-sep = ", ";
-}
+printf("%s%f", sep, va_arg(ap, double));
 if (format[i] == 's')
 {
-str = va_arg(args, char *);
-if (str == NULL)
-printf("%s(nil)", sep);
-else
-printf("%s%s", sep, str);
+str = va_arg(ap, char *);
+printf("%s%s", sep, str ? str : "(nil)");
+}
 sep = ", ";
 }
 i++;
 }
-va_end(args);
+va_end(ap);
 printf("\n");
 }
