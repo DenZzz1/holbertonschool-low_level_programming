@@ -12,6 +12,7 @@
  *              If separator is NULL, does not print any separator between strings.
  */
 void print_strings(const char *separator, const unsigned int n, ...)
+
 {
 va_list args;
 unsigned int i;
@@ -22,8 +23,10 @@ va_start(args, n);
 for (i = 0; i < n; i++)
 {
 str = va_arg(args, char *);
+
 if (str == NULL)
 printf("(nil)");
+
 else
 printf("%s", str);
 
