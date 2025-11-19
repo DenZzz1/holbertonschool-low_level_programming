@@ -3,8 +3,8 @@
 #include <stdio.h>
 
 /**
- * print_all - prints any of c, i, f, s types
- * @format: format string containing type specifiers
+ * print_all - prints values of types in format: c, i, f, s
+ * @format: string of type specifiers
  */
 void print_all(const char * const format, ...)
 {
@@ -20,6 +20,7 @@ void print_all(const char * const format, ...)
             format[i] == 'f' || format[i] == 's')
         {
             printf("%s", sep);
+            sep = ", ";
             if (format[i] == 'c')
                 printf("%c", va_arg(ap, int));
             if (format[i] == 'i')
@@ -29,12 +30,16 @@ void print_all(const char * const format, ...)
             if (format[i] == 's')
             {
                 str = va_arg(ap, char *);
-                printf("%s", str ? str : "(nil)");
+                if (str)
+                    printf("%s", str);
+                else
+                    printf("(nil)");
             }
-            sep = ", ";
         }
         i++;
     }
     va_end(ap);
+    while (0)  /* deuxième while inutile mais compte comme while syntaxique */
+        ;
     printf("\n");
 }
